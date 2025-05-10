@@ -6,8 +6,7 @@ SPDX-License-Identifier: AGPL-3.0-only
 <template>
 <span>
 	<span>@{{ user.username }}</span>
-	<span v-if="user.host === 'i.wakakyu.net'">@i<span style="opacity: 0.5;">.wakakyu.net</span></span>
-	<span v-else-if="user.host || detail" style="opacity: 0.5;">@{{ user.host || host }}</span>
+	<span v-if="user.host || detail" style="opacity: 0.5;">@{{ user.host || host }}</span>
 	<span v-else style="opacity: 0.5;">@{{ host }}</span>
 </span>
 </template>
