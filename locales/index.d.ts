@@ -4867,6 +4867,10 @@ export interface Locale extends ILocale {
      */
     "hideRepliesToOthersInTimelineAll": string;
     /**
+     * TLに連合なし投稿を含める
+     */
+    "showLocalOnlyInTimeline": string;
+    /**
      * この操作は元に戻せません。本当にTLに現在フォロー中の人全員の返信を含めるようにしますか？
      */
     "confirmShowRepliesAll": string;
@@ -6304,6 +6308,14 @@ export interface Locale extends ILocale {
          * グローバルタイムラインでは、接続している他のすべてのサーバーからの投稿を見られます。
          */
         "global": string;
+        /**
+         * ぶいみみリレータイムラインでは、バーチャルケモミミリレーサーバーに参加しているサーバーのユーザー全員の投稿を見られます。
+         */
+        "vmimi-relay": string;
+        /**
+         * ぶいみみソーシャルタイムラインには、ホームタイムラインとぶいみみリレータイムラインの投稿が両方表示されます。
+         */
+        "vmimi-relay-social": string;
     };
     "_serverRules": {
         /**
@@ -7467,6 +7479,10 @@ export interface Locale extends ILocale {
              * ローカルタイムラインの閲覧
              */
             "ltlAvailable": string;
+            /**
+             * ぶいみみリレータイムラインの閲覧
+             */
+            "vrtlAvailable": string;
             /**
              * パブリック投稿の許可
              */
@@ -9670,6 +9686,14 @@ export interface Locale extends ILocale {
          * グローバル
          */
         "global": string;
+        /**
+         * ぶいみみリレー
+         */
+        "vmimi-relay": string;
+        /**
+         * ぶいみみソーシャル
+         */
+        "vmimi-relay-social": string;
     };
     "_play": {
         /**

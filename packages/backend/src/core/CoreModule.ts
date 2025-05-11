@@ -148,12 +148,14 @@ import { ApMentionService } from './activitypub/models/ApMentionService.js';
 import { ApNoteService } from './activitypub/models/ApNoteService.js';
 import { ApPersonService } from './activitypub/models/ApPersonService.js';
 import { ApQuestionService } from './activitypub/models/ApQuestionService.js';
+import { VmimiRelayTimelineService } from './VmimiRelayTimelineService.js';
 import { QueueModule } from './QueueModule.js';
 import { QueueService } from './QueueService.js';
 import { LoggerService } from './LoggerService.js';
 import type { Provider } from '@nestjs/common';
 
 //#region 文字列ベースでのinjection用(循環参照対応のため)
+const $VmimiRelayTimelineService: Provider = { provide: 'VmimiRelayTimelineService', useExisting: VmimiRelayTimelineService };
 const $LoggerService: Provider = { provide: 'LoggerService', useExisting: LoggerService };
 const $AbuseReportService: Provider = { provide: 'AbuseReportService', useExisting: AbuseReportService };
 const $AbuseReportNotificationService: Provider = { provide: 'AbuseReportNotificationService', useExisting: AbuseReportNotificationService };
@@ -304,6 +306,7 @@ const $ApQuestionService: Provider = { provide: 'ApQuestionService', useExisting
 		QueueModule,
 	],
 	providers: [
+		VmimiRelayTimelineService,
 		LoggerService,
 		AbuseReportService,
 		AbuseReportNotificationService,
@@ -450,6 +453,7 @@ const $ApQuestionService: Provider = { provide: 'ApQuestionService', useExisting
 		QueueService,
 
 		//#region 文字列ベースでのinjection用(循環参照対応のため)
+		$VmimiRelayTimelineService,
 		$LoggerService,
 		$AbuseReportService,
 		$AbuseReportNotificationService,
@@ -596,6 +600,7 @@ const $ApQuestionService: Provider = { provide: 'ApQuestionService', useExisting
 		//#endregion
 	],
 	exports: [
+		VmimiRelayTimelineService,
 		QueueModule,
 		LoggerService,
 		AbuseReportService,
@@ -742,6 +747,7 @@ const $ApQuestionService: Provider = { provide: 'ApQuestionService', useExisting
 		QueueService,
 
 		//#region 文字列ベースでのinjection用(循環参照対応のため)
+		$VmimiRelayTimelineService,
 		$LoggerService,
 		$AbuseReportService,
 		$AbuseReportNotificationService,
